@@ -15,13 +15,13 @@ import { useAuthGuard } from '../../lib/auth/auth'
 const LOGIN_PATH = '/login'
 
 const withLayoutAuth =
-  (layoutIncludeStyle = 'mx-8 md:mx-14 bg-red-300 xl:mx-24 my-6 xl:my-8') =>
+  (layoutIncludeStyle = 'mx-8 md:mx-14 xl:mx-24 my-6 xl:my-8') =>
   (Component: NextPageWithLayout) => {
     const Auth = ({ ...props }) => {
       const router = useRouter()
       const [auth, setAuth] = useState<string | null | number>()
-      const { user } = useAuthGuard({ middleware: 'guest', redirectIfAuthenticated: '/' })
-      console.log("🚀 ~ Auth ~ user:", user)
+      const { user } = useAuthGuard({ middleware: 'guest' })
+      // console.log("🚀 ~ Auth ~ user:", user)
 
       // const [getProtected] = useLazyProtectedQuery()
 
@@ -39,12 +39,14 @@ const withLayoutAuth =
           // }
 
           if (!user) {
+            console.log('🚀 ~ getAuth ~ 1111:')
             router.push(LOGIN_PATH)
           }
           // setUser({ id: userId as number })
           // // dispatch(setCredentials({ user: { id: userId as number } }))
           // setAuth(userId)
         } catch (error) {
+          console.info('🚀 ~ getAuth ~ 2222:')
           router.push(LOGIN_PATH)
         }
       }

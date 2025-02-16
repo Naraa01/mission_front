@@ -6,11 +6,14 @@ import { Button } from '../components/common/Button'
 import { useAlert } from '../components/hooks/UseAlert'
 import { LoginRequest } from '../types/common'
 import { useAuthGuard } from '../lib/auth/auth'
+import { useCommonContext } from '../context/CommonContext'
 
 function Login() {
   const [show, Alert] = useAlert()
 
   const [formState, setFormState] = useState<LoginRequest>({ email: '', password: '' })
+
+  const { refetchUser, setUser } = useCommonContext()
 
   const { login } = useAuthGuard({ middleware: 'guest', redirectIfAuthenticated: '/' })
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from './Navbar'
+import { ProfileHeader } from '../user/ProfileHeader'
 // import Navbar from './Navbar'
-// import ProfileHeader from '../user/profileHeader'
 
 export default function LeftMenu() {
   return (
@@ -12,7 +12,9 @@ export default function LeftMenu() {
       >
         <Navbar />
       </div>
-      <div className="text-g400 text-left text-xs font-normal xl:block">{/* <ProfileHeader /> */}</div>
+      <div className="text-g400 text-left text-xs font-normal xl:block">
+        <ProfileHeader />
+      </div>
     </>
   )
 }

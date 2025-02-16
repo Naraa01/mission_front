@@ -4,6 +4,7 @@ import { ReactElement, ReactNode } from 'react'
 // import { Provider as ReduxProvider } from 'react-redux'
 import { NextPage } from 'next'
 import { useRouter } from 'next/router'
+import { CommonProvider } from '../context/CommonContext'
 // import { CommonProvider } from '../context/CommonContext'
 // import { store } from '../redux/store'
 // import { Widget } from '../components/Widget'
@@ -21,7 +22,11 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
 
   const router = useRouter()
 
-  return <>{getLayout(<Component {...pageProps} />)}</>
+  return (
+    <>
+      <CommonProvider>{getLayout(<Component {...pageProps} />)}</CommonProvider>
+    </>
+  )
   // return (
   //   <ReduxProvider store={store}>
   //     {!router?.pathname?.includes('webview') && <Widget />}

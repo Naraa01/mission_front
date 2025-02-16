@@ -47,7 +47,7 @@ export const useAuthGuard = ({ middleware, redirectIfAuthenticated }: AuthProps)
       await restClient.logout().then(() => mutate())
     }
 
-    window.location.pathname = '/auth/login'
+    window.location.pathname = '/login'
   }
 
   useEffect(() => {
