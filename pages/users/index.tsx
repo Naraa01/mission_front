@@ -41,62 +41,6 @@ function Users() {
     { name: 'И-мэйл', value: 'email' },
     { name: 'Овог', value: 'lastName' },
     { name: 'Нэр', value: 'firstName' },
-    // {
-    //   name: 'Хэрэглэгчийн мэдээлэл',
-    //   component: (key, id, rowData?: UserI) => (
-    //     <div className="flex items-center space-x-2">
-    //       <Image
-    //         src={`${rowData?.profilePic || '/assets/mobile-logo.png'}`}
-    //         width={36}
-    //         height={36}
-    //         alt=""
-    //         className="rounded-full"
-    //       />
-    //       <div className="text-sm">
-    //         <div className="text-creyscale-900 font-semibold truncate">{rowData?.firstName}</div>
-    //         <div className="text-creyscale-500">{rowData?.lastName}</div>
-    //       </div>
-    //     </div>
-    //   ),
-    // },
-    // { name: 'Утас', value: 'phone' },
-    // {
-    //   name: 'Үйлдэл',
-    //   component: (key, id, row?: SystemMenuI) => (
-    //     <>
-    //       <div className="flex items-center text-g6">
-    //         <Button
-    //           icon={<PencilIcon />}
-    //           outline={true}
-    //           borderStyle="none"
-    //           onClick={() => handleClick('update', row)}
-    //           variant="light"
-    //           size="small"
-    //         />
-
-    //         <Button
-    //           icon={<TrashIcon />}
-    //           onClick={() => handleClick('delete', row)}
-    //           variant="light"
-    //           size="small"
-    //           outline={true}
-    //           borderStyle="none"
-    //         />
-
-    //         {row?.isPrivate && (
-    //           <Button
-    //             icon={<KeyIcon />}
-    //             outline={true}
-    //             borderStyle="none"
-    //             onClick={() => handlePerm(row)}
-    //             variant="light"
-    //             size="small"
-    //           />
-    //         )}
-    //       </div>
-    //     </>
-    //   ),
-    // },
   ]
 
   return (

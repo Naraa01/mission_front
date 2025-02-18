@@ -2,24 +2,13 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
-// import { useSelector } from 'react-redux'
 import { ChevronRightIcon, GlobeAmericasIcon, UserCircleIcon, UserGroupIcon } from '@heroicons/react/24/solid'
-// import { useCommonContext } from '../../context/CommonContext'
-// import { useNotifySocket } from '../hooks/UseNotifySocket'
 import { useAlert } from '../hooks/UseAlert'
-// import { getUnreadCount } from '../../redux/slices/inbox'
-// import { useSystemMenusQuery } from '../../redux/services'
-// import { SystemMenuCodeEnum, SystemMenuTypeEnum } from '../../types/enum'
-// import { menuIcons, MenuIconEnum } from '../../types/menu.type'
-// import { MenuI } from '../../types/common'
 
 function Navbar() {
   const router = useRouter()
   const { botNo } = router.query
-  // const { t, setMenuChildrens } = useCommonContext()
-  // const { liveNoti } = useNotifySocket()
   const [show, Alert] = useAlert(10000)
-  // const unReadCount = useSelector(getUnreadCount)
 
   const { asPath } = router
 

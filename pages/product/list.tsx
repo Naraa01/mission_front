@@ -37,8 +37,6 @@ function ActionModal({
   setIsOpenDeleteModal,
   refetchList,
 }: ActionProps) {
-  console.log('pppp -> 🚀 ~ ActionModal ~ props:', rowData, isOpenCreateModal, isOpenUpdateModal, isOpenDeleteModal)
-
   const [show, Alert] = useAlert()
 
   const defaultModalData = {
@@ -66,97 +64,44 @@ function ActionModal({
   }, [isOpenUpdateModal || isOpenCreateModal])
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    console.log('🚀 ~ handleClose ~ handleClose:')
     try {
       e.preventDefault()
-      // const result = FormValidation.safeParse(modalData)
 
       if (isOpenCreateModal) {
-        console.log('🚀 ~ handleSubmit ~ isOpenCreateModal:', isOpenCreateModal)
-
         restClient
           .createProduct(modalData)
           .then((data: any) => {
-            // setProducts(data)
             setIsOpenCreateModal?.(false)
             refetchList?.()
           })
           .catch((error: any) => {
             // console.error('🚀 ~ onProtected ~ error:', error)
           })
-
-        //         show({ message: t?.createSuccessMessage, type: 'success' })
-        // setModalData(defaulFormInput)
       }
 
       if (isOpenDeleteModal) {
-        console.log('🚀 ~ handleSubmit ~ isOpenDeleteModal:', isOpenDeleteModal)
-
         restClient
           .deleteProduct({ id: rowData?.id || 0 })
           .then((data: any) => {
-            console.info('🚀 ~ deleteProduct ~ data:', data)
             setIsOpenDeleteModal?.(false)
             refetchList?.()
           })
           .catch((error: any) => {
             // console.error('🚀 ~ onProtected ~ error:', error)
           })
-
-        // show({ message: t?.deleteSuccessMessage, type: 'success' })
       }
 
       if (isOpenUpdateModal) {
-        console.log('🚀 ~ handleSubmit ~ isOpenUpdateModal:', isOpenUpdateModal)
-
         restClient
           .updateProduct({ id: rowData?.id || 0, ...modalData })
           .then((data: any) => {
-            console.info('🚀 ~ updateProduct ~ data:', data)
             setIsOpenUpdateModal?.(false)
             refetchList?.()
           })
           .catch((error: any) => {
             // console.error('🚀 ~ onProtected ~ error:', error)
           })
-
-        // show({ message: t?.updateSuccessMessage, type: 'success' })
       }
-
-      // refetch()
-      // const result = FormValidation.safeParse(modalData)
-
-      // if (isOpenCreateModal) {
-      //   if (!result.success) {
-      //     const messages = result?.error?.errors?.[0]?.message
-      //     show({ message: messages, type: 'error' })
-      //     return
-      //   }
-      //   await create({ botNo, ...modalData }).unwrap()
-
-      //   dispatch(setIsOpenCreateModal(false))
-      //   show({ message: t?.createSuccessMessage, type: 'success' })
-      //   setModalData(defaulFormInput)
-      // }
-
-      // if (isOpenDeleteModal) {
-      //   await remove({ botNo, id: rowData?.id as string }).unwrap()
-      //   dispatch(setIsOpenDeleteModal(false))
-      //   show({ message: t?.deleteSuccessMessage, type: 'success' })
-      // }
-
-      // if (isOpenUpdateModal) {
-      //   if (!result.success) {
-      //     const messages = result?.error?.errors?.[0]?.message
-      //     show({ message: messages, type: 'error' })
-      //     return
-      //   }
-      //   await update({ botNo, id: rowData?.id as string, ...modalData }).unwrap()
-      //   dispatch(setIsOpenUpdateModal(false))
-      //   show({ message: t?.updateSuccessMessage, type: 'success' })
-      // }
-
-      // refetch()
     } catch (err) {
       show({ message: err as string, type: 'error' })
       console.error(err)
@@ -171,7 +116,6 @@ function ActionModal({
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setModalData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
-    console.log('🚀 ~ handleClose ~ handleClose:')
   }
 
   return (
@@ -261,7 +205,7 @@ function ProductList() {
 
   const [page, setPage] = useState<number>(1)
   const [q, setQ] = useState<string>('')
-  console.log('🚀 ~ Users ~ q:', q)
+
   const [dragStart, setDragStart] = useState<any>()
   const [dragEnter, setDragEnter] = useState<any>()
 
@@ -275,7 +219,6 @@ function ProductList() {
     restClient
       .getProduct(query)
       .then((data: any) => {
-        console.info('🚀 ~ .then ~ data:', data)
         setProducts(data)
         setIsFetched(true)
       })

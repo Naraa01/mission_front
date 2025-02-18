@@ -447,19 +447,25 @@ export class RestApplicationClient {
     })
   }
 
-  createProduct(body: { name?: string, description?: string, count?: string, price?: string }): RestResponse<any> {
+  createProduct(body: { name?: string; description?: string; count?: string; price?: string }): RestResponse<any> {
     return this.httpClient.request({
       method: 'POST',
       url: uriEncoding`api/product/create`,
-      data: body
+      data: body,
     })
   }
 
-  updateProduct(body: { id: number; name?: string, description?: string, count?: string, price?: string }): RestResponse<any> {
+  updateProduct(body: {
+    id: number
+    name?: string
+    description?: string
+    count?: string
+    price?: string
+  }): RestResponse<any> {
     return this.httpClient.request({
       method: 'PUT',
       url: uriEncoding`api/product/update/${body.id || 0}`,
-      data: body
+      data: body,
     })
   }
 
@@ -484,65 +490,6 @@ export class RestApplicationClient {
    */
   getSession(): RestResponse<UserResponse> {
     return this.httpClient.request({ method: 'GET', url: uriEncoding`api/auth/me` })
-  }
-
-  /**
-   * HTTP POST /api/notifications/delivery/{id}
-   * Java method: com.example.backend.pushNotifications.NotificationsController.pushNotificationDelivery
-   */
-  pushNotificationDelivery(id: number): RestResponse<void> {
-    return this.httpClient.request({ method: 'POST', url: uriEncoding`api/notifications/delivery/${id}` })
-  }
-
-  /**
-   * HTTP POST /api/notifications/denied
-   * Java method: com.example.backend.pushNotifications.NotificationsController.pushNotificationRequestDenied
-   */
-  pushNotificationRequestDenied(request: NotificationPermissionRequest): RestResponse<void> {
-    return this.httpClient.request({ method: 'POST', url: uriEncoding`api/notifications/denied`, data: request })
-  }
-
-  /**
-   * HTTP POST /api/notifications/notify
-   * Java method: com.example.backend.pushNotifications.NotificationsController.pushNotificationNotify
-   */
-  pushNotificationNotify(request: SendNotificationRequest): RestResponse<void> {
-    return this.httpClient.request({ method: 'POST', url: uriEncoding`api/notifications/notify`, data: request })
-  }
-
-  /**
-   * HTTP GET /api/notifications/stats/delivery
-   * Java method: com.example.backend.pushNotifications.NotificationsController.getNotificationDeliveryStats
-   */
-  getNotificationDeliveryStats(queryParams?: { from?: Date; to?: Date }): RestResponse<NotificationsByDate[]> {
-    return this.httpClient.request({
-      method: 'GET',
-      url: uriEncoding`api/notifications/stats/delivery`,
-      queryParams: queryParams,
-    })
-  }
-
-  /**
-   * HTTP GET /api/notifications/stats/subscriptions
-   * Java method: com.example.backend.pushNotifications.NotificationsController.getNotificationSubscriptionStats
-   */
-  getNotificationSubscriptionStats(queryParams?: {
-    from?: Date
-    to?: Date
-  }): RestResponse<NotificationSubscribersByDate[]> {
-    return this.httpClient.request({
-      method: 'GET',
-      url: uriEncoding`api/notifications/stats/subscriptions`,
-      queryParams: queryParams,
-    })
-  }
-
-  /**
-   * HTTP POST /api/notifications/subscribe
-   * Java method: com.example.backend.pushNotifications.NotificationsController.pushNotificationSubscribe
-   */
-  pushNotificationSubscribe(request: SubscriptionRequest): RestResponse<void> {
-    return this.httpClient.request({ method: 'POST', url: uriEncoding`api/notifications/subscribe`, data: request })
   }
 
   /**
@@ -622,77 +569,6 @@ export type DeniedReason = 'NOT_SUPPORTED' | 'NOT_GRANTED'
 
 export type Role = 'USER' | 'ADMIN'
 
-/**
- * Values:
- * - `CONTINUE`
- * - `SWITCHING_PROTOCOLS`
- * - `PROCESSING`
- * - `CHECKPOINT`
- * - `OK`
- * - `CREATED`
- * - `ACCEPTED`
- * - `NON_AUTHORITATIVE_INFORMATION`
- * - `NO_CONTENT`
- * - `RESET_CONTENT`
- * - `PARTIAL_CONTENT`
- * - `MULTI_STATUS`
- * - `ALREADY_REPORTED`
- * - `IM_USED`
- * - `MULTIPLE_CHOICES`
- * - `MOVED_PERMANENTLY`
- * - `FOUND`
- * - `MOVED_TEMPORARILY` - @deprecated
- * - `SEE_OTHER`
- * - `NOT_MODIFIED`
- * - `USE_PROXY` - @deprecated
- * - `TEMPORARY_REDIRECT`
- * - `PERMANENT_REDIRECT`
- * - `BAD_REQUEST`
- * - `UNAUTHORIZED`
- * - `PAYMENT_REQUIRED`
- * - `FORBIDDEN`
- * - `NOT_FOUND`
- * - `METHOD_NOT_ALLOWED`
- * - `NOT_ACCEPTABLE`
- * - `PROXY_AUTHENTICATION_REQUIRED`
- * - `REQUEST_TIMEOUT`
- * - `CONFLICT`
- * - `GONE`
- * - `LENGTH_REQUIRED`
- * - `PRECONDITION_FAILED`
- * - `PAYLOAD_TOO_LARGE`
- * - `REQUEST_ENTITY_TOO_LARGE` - @deprecated
- * - `URI_TOO_LONG`
- * - `REQUEST_URI_TOO_LONG` - @deprecated
- * - `UNSUPPORTED_MEDIA_TYPE`
- * - `REQUESTED_RANGE_NOT_SATISFIABLE`
- * - `EXPECTATION_FAILED`
- * - `I_AM_A_TEAPOT`
- * - `INSUFFICIENT_SPACE_ON_RESOURCE` - @deprecated
- * - `METHOD_FAILURE` - @deprecated
- * - `DESTINATION_LOCKED` - @deprecated
- * - `UNPROCESSABLE_ENTITY`
- * - `LOCKED`
- * - `FAILED_DEPENDENCY`
- * - `TOO_EARLY`
- * - `UPGRADE_REQUIRED`
- * - `PRECONDITION_REQUIRED`
- * - `TOO_MANY_REQUESTS`
- * - `REQUEST_HEADER_FIELDS_TOO_LARGE`
- * - `UNAVAILABLE_FOR_LEGAL_REASONS`
- * - `INTERNAL_SERVER_ERROR`
- * - `NOT_IMPLEMENTED`
- * - `BAD_GATEWAY`
- * - `SERVICE_UNAVAILABLE`
- * - `GATEWAY_TIMEOUT`
- * - `HTTP_VERSION_NOT_SUPPORTED`
- * - `VARIANT_ALSO_NEGOTIATES`
- * - `INSUFFICIENT_STORAGE`
- * - `LOOP_DETECTED`
- * - `BANDWIDTH_LIMIT_EXCEEDED`
- * - `NOT_EXTENDED`
- * - `NETWORK_AUTHENTICATION_REQUIRED`
- */
 export type HttpStatus =
   | 'CONTINUE'
   | 'SWITCHING_PROTOCOLS'

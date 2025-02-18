@@ -51,12 +51,10 @@ export const useAuthGuard = ({ middleware, redirectIfAuthenticated }: AuthProps)
   }
 
   useEffect(() => {
-    // If middleware is 'guest' and we have a user, redirect
     if (middleware === 'guest' && redirectIfAuthenticated && user) {
       router.push(redirectIfAuthenticated)
     }
 
-    // If middleware is 'auth' and we have an error, logout
     if (middleware === 'auth' && error) {
       logout()
     }

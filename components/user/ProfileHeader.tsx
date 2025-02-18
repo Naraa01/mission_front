@@ -2,12 +2,9 @@ import React from 'react'
 import Image from 'next/image'
 import { useAuthGuard } from '../../lib/auth/auth'
 import { ArrowLeftStartOnRectangleIcon } from '@heroicons/react/24/solid'
-import { useCommonContext } from '../../context/CommonContext'
 
 export const ProfileHeader = () => {
   const { user, logout } = useAuthGuard({ middleware: 'guest' })
-  // const { user } = useCommonContext()
-  // console.log('🚀 ~ ProfileHeader ~ user:', user)
 
   const handleLogout = () => {
     logout()

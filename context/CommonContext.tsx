@@ -5,23 +5,9 @@ import { UserResponse } from '../models/UserResponse'
 import { restClient } from '../lib/httpClient'
 
 interface CommonContextProps {
-  // theme?: string
   user?: UserResponse | null | undefined
-  // setTheme?: (theme: string) => void
-  // locale?: string
-  // setLocale?: (locale: string) => void
   setUser?: (userId: UserResponse | null | undefined) => void
   refetchUser?: () => void
-  // t?: typeof en
-  // locales?: string[]
-  // bot?: BotI
-  // folderId?: string
-  // setfolderId?: (folderId: string) => void
-  // menuChildrens?: MenuI[]
-  // setMenuChildrens?: (value: MenuI[]) => void
-  // persistFolderId?: string
-  // setPersistFolderId?: (persistFolderId: string) => void
-  // melonToken?: string | null | undefined
 }
 
 const DEFUAL_LOCALE = 'mn'
@@ -60,11 +46,10 @@ export const CommonProvider = ({ children }: { children: React.ReactNode }) => {
       value={{
         user,
         setUser,
-        refetchUser: onProtected
+        refetchUser: onProtected,
       }}
     >
       {children}
-      {/* {clientLoaded && <div className={`${theme} theme-changer`}>{children}</div>} */}
     </Provider>
   )
 }

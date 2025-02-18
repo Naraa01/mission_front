@@ -62,11 +62,6 @@ function Signup() {
     <div className="lg:flex lg:flex-row-reverse h-screen">
       <div className="flex flex-col justify-between px-6 lg:px-0 flex-1 h-full">
         <div className="w-full flex flex-col justify-center flex-1">
-          {/* <div className="flex justify-center items-center">
-            <Link href="/">
-              <Image src="/assets/mobile-logo.png" width={48} height={48} alt="" />
-            </Link>
-          </div> */}
           <div className="w-full md:w-[360px] mx-auto">
             <>
               <h1 className="font-semibold text-3xl text-center mt-6">{'Бүртгүүлэх'}</h1>
