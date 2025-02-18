@@ -1,5 +1,21 @@
 import { z } from 'zod'
 
+export interface PageI<T> {
+  list: T
+  page: number
+  total: number
+  max: number
+}
+
+export interface ProductResponse {
+  id: number
+  name?: string
+  count?: string
+  description?: string
+  price?: string
+  imageUrl?: string
+}
+
 export const LoginValidation = z.object({
   email: z.string().email('E-Mail зөв оруулна уу!'),
   password: z.string().min(4, 'Нууц үг дөрвөөс бага байж болохгүй!'),

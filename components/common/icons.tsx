@@ -51,3 +51,116 @@ export const EyeIcon = ({ isOpen, className }: { isOpen: boolean; className?: st
     )}
   </svg>
 )
+
+export const ArrowDownIcon = ({
+  viewBox = '0 -4 21 30',
+  ...rest
+}: React.JSX.IntrinsicAttributes & React.SVGProps<SVGSVGElement>) => (
+  <svg
+    width="41"
+    height="40"
+    viewBox={viewBox}
+    fill="none"
+    {...rest}
+    xmlns="http://www.w3.org/2000/svg"
+    strokeWidth="1.5"
+    stroke="currentColor"
+  >
+    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+  </svg>
+)
+
+export const ArrowIcon = ({
+  viewBox = '0 0 24 24',
+  ...rest
+}: React.JSX.IntrinsicAttributes & React.SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    {...rest}
+    viewBox={viewBox}
+    strokeWidth="1.5"
+    stroke="currentColor"
+    className="w-6 h-6"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M3 7.5L7.5 3m0 0L12 7.5M7.5 3v13.5m13.5 0L16.5 21m0 0L12 16.5m4.5 4.5V7.5"
+    />
+  </svg>
+)
+
+export const FilterIcon = ({
+  viewBox = '0 0 20 20',
+  ...rest
+}: React.JSX.IntrinsicAttributes & React.SVGProps<SVGSVGElement>) => (
+  <svg width="20" height="20" viewBox={viewBox} fill="none" xmlns="http://www.w3.org/2000/svg" {...rest}>
+    <path
+      d="M5 10H15M2.5 5H17.5M7.5 15H12.5"
+      stroke="#ED044C"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+)
+
+export const PencilIcon = ({
+  viewBox = '0 0 24 24',
+  ...rest
+}: React.JSX.IntrinsicAttributes & React.SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    {...rest}
+    viewBox={viewBox}
+    strokeWidth="1.5"
+    stroke="currentColor"
+    className="w-6 h-6"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125"
+    />
+  </svg>
+)
+
+export const TrashIcon = ({
+  viewBox = '0 0 24 24',
+  ...rest
+}: React.JSX.IntrinsicAttributes & React.SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    {...rest}
+    viewBox={viewBox}
+    strokeWidth="1.5"
+    stroke="currentColor"
+    className="w-6 h-6"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
+    />
+  </svg>
+)
+
+export const SearchIcon = ({
+  width = 20,
+  height = 20,
+  stroke = '#667085',
+  ...rest
+}: React.JSX.IntrinsicAttributes & React.SVGProps<SVGSVGElement>) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} fill="none" {...rest}>
+    <path
+      stroke={stroke}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={1.5}
+      d="m17.5 17.5-3.625-3.625m1.958-4.708a6.667 6.667 0 1 1-13.333 0 6.667 6.667 0 0 1 13.333 0Z"
+    />
+  </svg>
+)

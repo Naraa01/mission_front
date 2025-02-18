@@ -404,6 +404,7 @@ export interface HttpClient {
     method: string
     url: string
     queryParams?: any
+    query?: any
     data?: any
     copyFn?: (data: R) => R
   }): RestResponse<R>
@@ -434,6 +435,39 @@ export class RestApplicationClient {
    */
   login(body: LoginRequest): RestResponse<any> {
     return this.httpClient.request({ method: 'POST', url: uriEncoding`api/auth/login`, data: body })
+  }
+
+  getProduct(queryParams?: { page?: number; max?: number; q?: string }): RestResponse<any> {
+    return this.httpClient.request({
+      method: 'GET',
+      url: queryParams?.q
+        ? uriEncoding`api/product/list?page=${queryParams?.page || 1}&max=${queryParams?.max || 10}&q=${queryParams?.q}`
+        : uriEncoding`api/product/list?page=${queryParams?.page || 1}&max=${queryParams?.max || 10}`,
+      // query: queryParams,
+    })
+  }
+
+  createProduct(body: { name?: string, description?: string, count?: string, price?: string }): RestResponse<any> {
+    return this.httpClient.request({
+      method: 'POST',
+      url: uriEncoding`api/product/create`,
+      data: body
+    })
+  }
+
+  updateProduct(body: { id: number; name?: string, description?: string, count?: string, price?: string }): RestResponse<any> {
+    return this.httpClient.request({
+      method: 'PUT',
+      url: uriEncoding`api/product/update/${body.id || 0}`,
+      data: body
+    })
+  }
+
+  deleteProduct(body: { id: number }): RestResponse<any> {
+    return this.httpClient.request({
+      method: 'DELETE',
+      url: uriEncoding`api/product/delete/${body.id || 0}`,
+    })
   }
 
   /**

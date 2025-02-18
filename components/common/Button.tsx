@@ -101,8 +101,12 @@ export const Button = ({
 
   const primaryOutlineClass = `
   ${variantClass[variant].outlineClass}
-    border
-    border-${borderStyle}
+  ${
+    borderStyle === 'none'
+      ? ''
+      : `border
+      border-${borderStyle}`
+  }
     focus:outline-none       
     focus:ring-2 
   `

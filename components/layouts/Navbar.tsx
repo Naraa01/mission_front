@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 // import { useSelector } from 'react-redux'
-import { ChevronRightIcon, UserCircleIcon, UserGroupIcon } from '@heroicons/react/24/solid'
+import { ChevronRightIcon, GlobeAmericasIcon, UserCircleIcon, UserGroupIcon } from '@heroicons/react/24/solid'
 // import { useCommonContext } from '../../context/CommonContext'
 // import { useNotifySocket } from '../hooks/UseNotifySocket'
 import { useAlert } from '../hooks/UseAlert'
@@ -32,6 +32,15 @@ function Navbar() {
     {
       id: 1,
       order: 1,
+      code: 'dashboard',
+      href: '/',
+      title: 'Dashboard',
+      icon: <UserGroupIcon className={`h-4 w-4 `} />,
+      subMenus: [],
+    },
+    {
+      id: 2,
+      order: 2,
       code: 'users',
       href: 'users',
       title: 'Users',
@@ -39,8 +48,17 @@ function Navbar() {
       subMenus: [],
     },
     {
-      id: 2,
-      order: 2,
+      id: 3,
+      order: 3,
+      code: 'products',
+      href: 'product/list',
+      title: 'Product',
+      icon: <GlobeAmericasIcon className={`h-4 w-4 `} />,
+      subMenus: [],
+    },
+    {
+      id: 4,
+      order: 4,
       code: 'user_profile',
       // href: 'user/profile',
       title: 'User Profile',

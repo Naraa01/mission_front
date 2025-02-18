@@ -91,5 +91,6 @@ module.exports = {
     require('tailwind-scrollbar-hide'),
     require('tailwind-scrollbar')({ nocompatible: true }),
     require('@tailwindcss/forms')({ strategy: 'class' }),
+    require('@headlessui/tailwindcss'),
   ],
 }
